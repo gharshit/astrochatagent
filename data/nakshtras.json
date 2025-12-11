@@ -1,0 +1,111 @@
+{
+    "Ashwini": {
+      "rashi": "Aries",
+      "description": "Swift beginnings, healing energy, pioneering spirit."
+    },
+    "Bharani": {
+      "rashi": "Aries",
+      "description": "Transformation, endurance, strong willpower."
+    },
+    "Krittika": {
+      "rashi": "Aries / Taurus",
+      "description": "Fiery energy, sharp discernment, purification."
+    },
+    "Rohini": {
+      "rashi": "Taurus",
+      "description": "Growth, beauty, fertility, sensuality."
+    },
+    "Mrigashira": {
+      "rashi": "Taurus / Gemini",
+      "description": "Curiosity, search for truth, restlessness."
+    },
+    "Ardra": {
+      "rashi": "Gemini",
+      "description": "Stormy transformation, emotional depth, renewal."
+    },
+    "Punarvasu": {
+      "rashi": "Gemini / Cancer",
+      "description": "Renewal, hope, nurturing, return to balance."
+    },
+    "Pushya": {
+      "rashi": "Cancer",
+      "description": "Nurturing, nourishment, spiritual growth."
+    },
+    "Ashlesha": {
+      "rashi": "Cancer",
+      "description": "Mystery, intuition, depth, hidden power."
+    },
+    "Magha": {
+      "rashi": "Leo",
+      "description": "Honor, heritage, authority, leadership."
+    },
+    "Purva Phalguni": {
+      "rashi": "Leo",
+      "description": "Pleasure, creativity, romance, enjoyment."
+    },
+    "Uttara Phalguni": {
+      "rashi": "Leo / Virgo",
+      "description": "Partnership, responsibility, stability, duty."
+    },
+    "Hasta": {
+      "rashi": "Virgo",
+      "description": "Skill, craftsmanship, dexterity, meticulousness."
+    },
+    "Chitra": {
+      "rashi": "Virgo / Libra",
+      "description": "Artistic brilliance, beauty, refinement."
+    },
+    "Swati": {
+      "rashi": "Libra",
+      "description": "Flexibility, independence, adaptability, movement."
+    },
+    "Vishakha": {
+      "rashi": "Libra / Scorpio",
+      "description": "Ambition, focus, goal-oriented energy, drive."
+    },
+    "Anuradha": {
+      "rashi": "Scorpio",
+      "description": "Devotion, loyalty, friendship, deep emotional bonds."
+    },
+    "Jyeshtha": {
+      "rashi": "Scorpio",
+      "description": "Authority, seniority, protection, resilience."
+    },
+    "Mula": {
+      "rashi": "Sagittarius",
+      "description": "Roots, truth-seeking, foundation, transformation."
+    },
+    "Purva Ashadha": {
+      "rashi": "Sagittarius",
+      "description": "Victory, growth, expansion, cleansing energy."
+    },
+    "Uttara Ashadha": {
+      "rashi": "Sagittarius / Capricorn",
+      "description": "Leadership, righteousness, enduring strength."
+    },
+    "Shravana": {
+      "rashi": "Capricorn",
+      "description": "Learning, listening, wisdom, disciplined study."
+    },
+    "Dhanishtha": {
+      "rashi": "Capricorn / Aquarius",
+      "description": "Prosperity, talent, rhythm, resourcefulness."
+    },
+    "Shatabhisha": {
+      "rashi": "Aquarius",
+      "description": "Healing, mystery, independence, depth."
+    },
+    "Purva Bhadrapada": {
+      "rashi": "Aquarius / Pisces",
+      "description": "Intensity, spiritual transformation, idealism."
+    },
+    "Uttara Bhadrapada": {
+      "rashi": "Pisces",
+      "description": "Stability, calm wisdom, inner depth, maturity."
+    },
+    "Revati": {
+      "rashi": "Pisces",
+      "description": "Kindness, nurturing, safe endings, protection."
+    }
+  }
+  

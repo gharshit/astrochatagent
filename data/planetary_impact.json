@@ -1,0 +1,201 @@
+{
+    "Sun": {
+      "description": "Represents the core self, identity, vitality, ego and life purpose.",
+      "nature": {
+        "type": "Mild Malefic",
+        "meaning": "Sun burns and purifies; strong but can create ego and dominance challenges."
+      },
+      "keywords": ["identity", "ego", "vitality", "expression", "leadership"],
+      "positive_influences": [
+        "Confidence and self-worth",
+        "Leadership abilities",
+        "Clarity of purpose",
+        "Charisma"
+      ],
+      "challenging_influences": [
+        "Ego conflicts",
+        "Stubbornness",
+        "Over-dominance"
+      ],
+      "element_association": "Fire",
+      "governs_life_areas": ["self-expression", "career leadership", "health vitality"],
+      "astrological_role": "Indicator of soul purpose and individuality."
+    },
+  
+    "Moon": {
+      "description": "Symbolizes emotions, mind, intuition, nurturing and inner stability.",
+      "nature": {
+        "type": "Benefic (when Waxing), Mild Malefic (when Waning)",
+        "meaning": "Moon nurtures and supports emotionally, but waning Moon reduces stability."
+      },
+      "keywords": ["emotion", "intuition", "nurturing", "inner world"],
+      "positive_influences": [
+        "Emotional depth",
+        "Empathy",
+        "Strong intuition"
+      ],
+      "challenging_influences": [
+        "Mood swings",
+        "Sensitivity",
+        "Emotional overwhelm"
+      ],
+      "element_association": "Water",
+      "governs_life_areas": ["emotions", "family", "motherhood"],
+      "astrological_role": "Represents the emotional body and mind."
+    },
+  
+    "Mars": {
+      "description": "Represents drive, action, courage, aggression, passion and conflict.",
+      "nature": {
+        "type": "Malefic",
+        "meaning": "Mars provokes action but can cause conflict, anger and impulsiveness."
+      },
+      "keywords": ["energy", "drive", "assertiveness"],
+      "positive_influences": [
+        "Courage",
+        "Determination",
+        "Competitive strength"
+      ],
+      "challenging_influences": [
+        "Anger",
+        "Accidents",
+        "Conflict"
+      ],
+      "element_association": "Fire",
+      "governs_life_areas": ["ambition", "competition", "physical vitality"],
+      "astrological_role": "Planet of action, stamina and aggression."
+    },
+  
+    "Mercury": {
+      "description": "Governs communication, intellect, logic, learning and trade.",
+      "nature": {
+        "type": "Neutral (Benefic when strong)",
+        "meaning": "Mercury amplifies the influence of planets it associates with; flexible nature."
+      },
+      "keywords": ["communication", "logic", "analysis"],
+      "positive_influences": [
+        "Clear thinking",
+        "Adaptability",
+        "Strong communication"
+      ],
+      "challenging_influences": [
+        "Overthinking",
+        "Anxiety",
+        "Miscommunication"
+      ],
+      "element_association": "Air/Earth",
+      "governs_life_areas": ["education", "communication", "travel"],
+      "astrological_role": "Messenger planet influencing mental processes."
+    },
+  
+    "Jupiter": {
+      "description": "Represents wisdom, knowledge, expansion, fortune and spirituality.",
+      "nature": {
+        "type": "Benefic",
+        "meaning": "Jupiter expands positivity, luck, wisdom and spiritual growth."
+      },
+      "keywords": ["wisdom", "growth", "fortune"],
+      "positive_influences": [
+        "Optimism",
+        "Good luck",
+        "Spiritual insight"
+      ],
+      "challenging_influences": [
+        "Excess",
+        "Over-optimism",
+        "Indulgence"
+      ],
+      "element_association": "Ether",
+      "governs_life_areas": ["philosophy", "education", "spirituality"],
+      "astrological_role": "Planet of divine grace and expansion."
+    },
+  
+    "Venus": {
+      "description": "Represents love, art, beauty, pleasure, relationships and wealth.",
+      "nature": {
+        "type": "Benefic",
+        "meaning": "Venus grants harmony, luxury, romance and artistic expression."
+      },
+      "keywords": ["love", "beauty", "pleasure"],
+      "positive_influences": [
+        "Romantic harmony",
+        "Artistic creativity",
+        "Diplomacy"
+      ],
+      "challenging_influences": [
+        "Overindulgence",
+        "Attachment",
+        "Materialism"
+      ],
+      "element_association": "Water",
+      "governs_life_areas": ["love", "marriage", "comfort"],
+      "astrological_role": "Planet of affection and aesthetics."
+    },
+  
+    "Saturn": {
+      "description": "Represents discipline, boundaries, karma, responsibility, time and structure.",
+      "nature": {
+        "type": "Malefic",
+        "meaning": "Saturn brings challenges to teach patience, discipline and maturity."
+      },
+      "keywords": ["discipline", "karma", "structure"],
+      "positive_influences": [
+        "Persistence",
+        "Maturity",
+        "Strong work ethic"
+      ],
+      "challenging_influences": [
+        "Delays",
+        "Fear",
+        "Loneliness"
+      ],
+      "element_association": "Air",
+      "governs_life_areas": ["career", "responsibility", "longevity"],
+      "astrological_role": "Planet of karmic lessons and boundaries."
+    },
+  
+    "Rahu": {
+      "description": "Shadow planet representing desires, illusions, ambition, innovation and chaos.",
+      "nature": {
+        "type": "Shadow (Malefic)",
+        "meaning": "Rahu magnifies cravings, sudden changes, illusions and unconventional thinking."
+      },
+      "keywords": ["obsession", "innovation", "material desire"],
+      "positive_influences": [
+        "Technological growth",
+        "Social breakthroughs",
+        "Unconventional intelligence"
+      ],
+      "challenging_influences": [
+        "Addiction",
+        "Confusion",
+        "Delusion"
+      ],
+      "element_association": "Air/Shadow",
+      "governs_life_areas": ["ambition", "technology", "foreign matters"],
+      "astrological_role": "North Node—amplifier of desires and futuristic tendencies."
+    },
+  
+    "Ketu": {
+      "description": "Shadow planet of spirituality, detachment, past karma, intuition and liberation.",
+      "nature": {
+        "type": "Shadow (Malefic/Transformative)",
+        "meaning": "Ketu dissolves ego and attachments to promote spiritual growth."
+      },
+      "keywords": ["detachment", "intuition", "moksha"],
+      "positive_influences": [
+        "Wisdom",
+        "Spiritual awakening",
+        "Detachment from illusions"
+      ],
+      "challenging_influences": [
+        "Isolation",
+        "Confusion",
+        "Material loss"
+      ],
+      "element_association": "Fire/Shadow",
+      "governs_life_areas": ["spirituality", "intuition", "past karma"],
+      "astrological_role": "South Node—planet of liberation and karmic completion."
+    }
+  }
+  

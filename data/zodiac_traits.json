@@ -1,0 +1,111 @@
+{
+    "Aries": {
+      "personality": "Bold, energetic, initiator, competitive.",
+      "strengths": "Leadership, courage, action-oriented, optimism.",
+      "challenges": "Impatient, impulsive, short-tempered.",
+      "element": "Fire",
+      "ruling_planet": "Mars",
+      "compatible_signs": ["Leo", "Sagittarius", "Gemini"],
+      "nakshatra": ["Ashwini", "Bharani", "Krittika"]
+    },
+    "Taurus": {
+      "personality": "Reliable, grounded, loyal, beauty-loving.",
+      "strengths": "Patience, practicality, determination.",
+      "challenges": "Stubbornness, resistance to change.",
+      "element": "Earth",
+      "ruling_planet": "Venus",
+      "compatible_signs": ["Virgo", "Capricorn", "Cancer"],
+      "nakshatra": ["Krittika", "Rohini", "Mrigashira"]
+    },
+    "Gemini": {
+      "personality": "Curious, expressive, adaptable, witty.",
+      "strengths": "Communication, creativity, social intelligence.",
+      "challenges": "Inconsistency, restlessness.",
+      "element": "Air",
+      "ruling_planet": "Mercury",
+      "compatible_signs": ["Libra", "Aquarius", "Aries"],
+      "nakshatra": ["Mrigashira", "Ardra", "Punarvasu"]
+    },
+    "Cancer": {
+      "personality": "Emotional, nurturing, protective, intuitive.",
+      "strengths": "Empathy, loyalty, compassion, persistence.",
+      "challenges": "Moodiness, over-sensitivity, clinginess.",
+      "element": "Water",
+      "ruling_planet": "Moon",
+      "compatible_signs": ["Scorpio", "Pisces", "Taurus"],
+      "nakshatra": ["Punarvasu", "Pushya", "Ashlesha"]
+    },
+    "Leo": {
+      "personality": "Confident, expressive, warm, charismatic.",
+      "strengths": "Creativity, leadership, generosity.",
+      "challenges": "Ego, stubbornness, attention-seeking.",
+      "element": "Fire",
+      "ruling_planet": "Sun",
+      "compatible_signs": ["Aries", "Sagittarius", "Gemini"],
+      "nakshatra": ["Magha", "Purva Phalguni", "Uttara Phalguni"]
+    },
+    "Virgo": {
+      "personality": "Practical, analytical, detail-oriented, modest.",
+      "strengths": "Problem-solving, discipline, reliability.",
+      "challenges": "Overthinking, perfectionism, self-criticism.",
+      "element": "Earth",
+      "ruling_planet": "Mercury",
+      "compatible_signs": ["Taurus", "Capricorn", "Cancer"],
+      "nakshatra": ["Uttara Phalguni", "Hasta", "Chitra"]
+    },
+    "Libra": {
+      "personality": "Diplomatic, charming, balanced, sociable.",
+      "strengths": "Fairness, cooperation, aesthetic sense.",
+      "challenges": "Indecision, avoidance of conflict, people-pleasing.",
+      "element": "Air",
+      "ruling_planet": "Venus",
+      "compatible_signs": ["Gemini", "Aquarius", "Leo"],
+      "nakshatra": ["Chitra", "Swati", "Vishakha"]
+    },
+    "Scorpio": {
+      "personality": "Intense, intuitive, mysterious, determined.",
+      "strengths": "Focus, loyalty, emotional depth.",
+      "challenges": "Jealousy, secrecy, controlling tendencies.",
+      "element": "Water",
+      "ruling_planet": "Mars / Pluto",
+      "compatible_signs": ["Cancer", "Pisces", "Virgo"],
+      "nakshatra": ["Vishakha", "Anuradha", "Jyeshtha"]
+    },
+    "Sagittarius": {
+      "personality": "Adventurous, philosophical, optimistic, blunt.",
+      "strengths": "Vision, courage, independence.",
+      "challenges": "Impulsiveness, restlessness, tactlessness.",
+      "element": "Fire",
+      "ruling_planet": "Jupiter",
+      "compatible_signs": ["Aries", "Leo", "Aquarius"],
+      "nakshatra": ["Mula", "Purva Ashadha", "Uttara Ashadha"]
+    },
+    "Capricorn": {
+      "personality": "Disciplined, ambitious, responsible, realistic.",
+      "strengths": "Persistence, strategic thinking, maturity.",
+      "challenges": "Rigidity, workaholism, pessimism.",
+      "element": "Earth",
+      "ruling_planet": "Saturn",
+      "compatible_signs": ["Taurus", "Virgo", "Scorpio"],
+      "nakshatra": ["Uttara Ashadha", "Shravana", "Dhanishtha"]
+    },
+    "Aquarius": {
+      "personality": "Innovative, independent, humanitarian, unconventional.",
+      "strengths": "Creativity, intellect, forward-thinking.",
+      "challenges": "Detachment, unpredictability, stubborn opinions.",
+      "element": "Air",
+      "ruling_planet": "Saturn / Uranus",
+      "compatible_signs": ["Gemini", "Libra", "Sagittarius"],
+      "nakshatra": ["Dhanishtha", "Shatabhisha", "Purva Bhadrapada"]
+    },
+    "Pisces": {
+      "personality": "Empathetic, dreamy, intuitive, artistic.",
+      "strengths": "Compassion, imagination, adaptability.",
+      "challenges": "Escapism, emotional overwhelm, indecisiveness.",
+      "element": "Water",
+      "ruling_planet": "Jupiter / Neptune",
+      "compatible_signs": ["Cancer", "Scorpio", "Capricorn"],
+      "nakshatra": ["Purva Bhadrapada", "Uttara Bhadrapada", "Revati"]
+    }
+  }
+  
