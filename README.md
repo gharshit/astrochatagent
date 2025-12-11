@@ -1,4 +1,4 @@
-# MyNakshpoc
+# Astrology Coversational Agent
 
 A Vedic astrology conversation agent powered by LangGraph and RAG (Retrieval-Augmented Generation). This intelligent agent provides personalized astrological guidance by combining user birth chart analysis with a comprehensive knowledge base of Vedic astrology principles.
 
