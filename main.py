@@ -19,7 +19,7 @@ from helper.data_ingestion import ingest_data
 from helper.init_chroma_db import create_query_function, init_chroma_db
 from langgraph.checkpoint.memory import MemorySaver
 from vedicastro.VedicAstro import VedicHoroscopeData
-from app.router import chat_router, kundali_router, session_router
+from app.router import chat_router, kundali_router
 from app.builder import compile_graph
 from helper.utils import logger
 
@@ -115,7 +115,6 @@ app = FastAPI(
 # Include routers
 app.include_router(chat_router)
 app.include_router(kundali_router)
-app.include_router(session_router)
 
 @app.get("/")
 async def root():

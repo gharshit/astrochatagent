@@ -2,7 +2,7 @@
 
 
 from pydantic import BaseModel, Field, field_validator
-from typing import Literal, List
+from typing import Literal, List, Optional
 from datetime import datetime
 
 
@@ -176,3 +176,79 @@ class KundaliDetails(BaseModel):
     planetary_aspects : List[PlanetaryAspect]    = Field(default_factory=list, description="Planetary aspects")
     consolidated_chart: List[dict] | dict | None = Field(None, description="Consolidated chart data")
     vimshottari_dasa  : dict[str, DasaDetails]   = Field(default_factory=dict, description="Vimshottari Dasa periods")
+
+
+
+##>=============================================================
+##> RAG Query and Retrieval Models
+##>=============================================================
+
+
+# Enums and Literals for RAG Query Output
+ZodiacSign = Literal[
+    "Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo",
+    "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces"
+]
+
+PlanetaryFactor = Literal[
+    "Sun", "Moon", "Mars", "Mercury", "Jupiter", "Venus", "Saturn", "Rahu", "Ketu"
+]
+
+LifeArea = Literal["love", "spirituality", "career"]
+
+NakshatraName = Literal[
+    "Ashwini", "Bharani", "Krittika", "Rohini", "Mrigashira", "Ardra",
+    "Punarvasu", "Pushya", "Ashlesha", "Magha", "Purva Phalguni", "Uttara Phalguni",
+    "Hasta", "Chitra", "Swati", "Vishakha", "Anuradha", "Jyeshtha",
+    "Mula", "Purva Ashadha", "Uttara Ashadha", "Shravana", "Dhanishtha",
+    "Shatabhisha", "Purva Bhadrapada", "Uttara Bhadrapada", "Revati"
+]
+
+
+class MetadataFilters(BaseModel):
+    """
+    Metadata filters for ChromaDB query.
+    
+    All fields are optional and can be None or empty lists.
+    """
+    zodiacs          : Optional[List[ZodiacSign]]         = Field(
+        default=None,
+        description="List of zodiac signs to filter by. Available: Aries, Taurus, Gemini, Cancer, Leo, Virgo, Libra, Scorpio, Sagittarius, Capricorn, Aquarius, Pisces"
+    )
+    planetary_factors: Optional[List[PlanetaryFactor]]    = Field(
+        default=None,
+        description="List of planetary factors to filter by. Available: Sun, Moon, Mars, Mercury, Jupiter, Venus, Saturn, Rahu, Ketu"
+    )
+    life_areas       : Optional[List[LifeArea]]           = Field(
+        default=None,
+        description="List of life areas to filter by. Available: love, spirituality, career"
+    )
+    nakshtra         : Optional[List[NakshatraName]]      = Field(
+        default=None,
+        description="List of nakshatras to filter by. Available: Ashwini, Bharani, Krittika, Rohini, Mrigashira, Ardra, Punarvasu, Pushya, Ashlesha, Magha, Purva Phalguni, Uttara Phalguni, Hasta, Chitra, Swati, Vishakha, Anuradha, Jyeshtha, Mula, Purva Ashadha, Uttara Ashadha, Shravana, Dhanishtha, Shatabhisha, Purva Bhadrapada, Uttara Bhadrapada, Revati"
+    )
+
+
+class RAGQueryOutput(BaseModel):
+    """
+    Structured output for RAG query generation node.
+    
+    This model defines the expected output structure when analyzing
+    user queries and kundali details to determine if RAG retrieval is needed.
+    """
+    needs_rag       : bool             = Field(
+        ...,
+        description="Whether RAG (retrieval) is needed to answer the question. Set to False if the question can be answered with general astrological knowledge or if required information is already present in previous context."
+    )
+    metadata_filters: Optional[MetadataFilters] = Field(
+        default=None,
+        description="Metadata filters for ChromaDB query. Only include filters that are relevant to the user's question and kundali details.",examples=[MetadataFilters(zodiacs=["Aries", "Taurus"], planetary_factors=["Sun", "Moon"], life_areas=["love", "career"], nakshtra=["Ashwini", "Bharani"])]
+    )
+    rag_query       : Optional[str]    = Field(
+        default=None,
+        description="Optimized search query string for semantic search. Should be concise and focused on the specific astrological information needed. Only provide if needs_rag is True."
+    )
+    reasoning       : Optional[str]    = Field(
+        default=None,
+        description="Brief reasoning for why RAG is needed or not needed, and what information is being sought."
+    )

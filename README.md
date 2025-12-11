@@ -9,10 +9,16 @@ A Vedic astrology knowledge base using ChromaDB with OpenAI embeddings via LangC
 uv sync
 ```
 
-2. Create a `.env` file in the root directory with your OpenAI API key:
+2. Create a `.env` file in the root directory with your OpenAI API key and model configuration:
 ```env
 OPENAI_API_KEY=your_openai_api_key_here
-OPENAI_MODEL=text-embedding-3-small
+
+# LLM Model Configuration (optional - defaults provided)
+LLM_CHAT_MODEL=gpt-4o-mini
+LLM_STRUCTURED_MODEL=gpt-4o-mini
+LLM_CHAT_TEMPERATURE=0.7
+LLM_STRUCTURED_TEMPERATURE=0
+LLM_EMBEDDING_MODEL=text-embedding-3-small
 ```
 
 3. Run data ingestion:

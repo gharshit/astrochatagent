@@ -146,31 +146,43 @@ async def chat(chat_request: ChatRequest, request: Request) -> dict:
         # - Create new state if thread doesn't exist
         # - Persist state after execution
         initial_state: GraphState = {
-            "messages"       : [HumanMessage(content=chat_request.message)],
-            "user_profile"   : chat_request.user_profile,
-            "kundali_details": kundali_details,
-            "session_id"     : thread_id
+            "messages"        : [HumanMessage(content=chat_request.message)],
+            "user_profile"    : chat_request.user_profile,
+            "kundali_details" : kundali_details,
+            "session_id"      : thread_id,
+            "rag_context_keys": [],
+            "rag_query"       : None,
+            "rag_results"     : [],
+            "needs_rag"       : False,
+            "metadata_filters": None
         }
+        
+        # Get query_function from app state
+        query_function = request.app.state.query_function
         
         # Invoke graph with checkpoint configuration
         # LangGraph automatically handles state restoration and persistence
         logger.info("Invoking LangGraph (state will be auto-restored/persisted)...")
-        config = {"configurable": {"thread_id": thread_id}}
+        config = {
+            "configurable": {
+                "thread_id": thread_id,
+                "query_function": query_function
+            }
+        }
         
         final_state = await compiled_graph.ainvoke(initial_state, config=config)
         
         logger.info("✓ Graph execution completed, state automatically persisted")
         
         # Extract response from final state
-        # TODO: Extract actual response from messages when chat logic is implemented
-        response = final_state.get("messages", [])[-1].content
-        context_used = []
-        zodiac_sign = kundali_details.key_positions.sun.sign or "N/A"
+        response     = final_state.get("messages", [])[-1].content
+        context_used = final_state.get("rag_context_keys", [])
+        zodiac_sign  = kundali_details.key_positions.sun.sign or "N/A"
         
         return ChatResponse(
-            response=response,
-            context_used=context_used,
-            zodiac_sign=zodiac_sign
+            response     = response,
+            context_used = context_used,
+            zodiac_sign  = zodiac_sign
         )
             
     except HTTPException:

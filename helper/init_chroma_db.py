@@ -48,7 +48,26 @@ def init_chroma_db(
     # If not recreating, load or create
     if collection_name in existing_collections:
         logger.info(f"Collection '{collection_name}' exists. Loading...")
-        return client.get_collection(collection_name)
+        # Pass embedding function when loading to ensure queries use the correct model
+        if embedding_function is not None:
+            logger.debug(f"Loading collection '{collection_name}' with embedding function")
+            try:
+                collection = client.get_collection(
+                    name               = collection_name,
+                    embedding_function = embedding_function
+                )
+                logger.info(f"✓ Collection '{collection_name}' loaded successfully with embedding function")
+                return collection
+            except Exception as e:
+                logger.warning(
+                    f"Failed to load collection with embedding function: {e}. "
+                    f"This may indicate an embedding dimension mismatch. "
+                    f"Consider recreating the collection with recreate=True or "
+                    f"ensuring LLM_EMBEDDING_MODEL matches the model used to create the collection."
+                )
+                raise
+        else:
+            return client.get_collection(collection_name)
     else:
         logger.info(f"Collection '{collection_name}' does not exist. Creating new one...")
         logger.debug(f"Creating collection '{collection_name}' with embedding function")
