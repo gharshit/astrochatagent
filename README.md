@@ -73,7 +73,10 @@ Handles conversational interactions with the astrology agent.
 **Response**:
 ```json
 {
-    "response"    : "Your chart shows strong Jupiter energy as Lagna lord, placed in the 7th house, favoring roles involving guidance, teaching, consulting, or partnerships. Mercury and Venus in the 11th house suggest success in communication, networking, or creative fields. Focus on careers where you can inspire, connect, and lead others.",
+    "response"    : "Your chart shows strong Jupiter energy as Lagna lord, placed in the 7th house,
+    favoring roles involving guidance, teaching, consulting, or partnerships.
+    Mercury and Venus in the 11th house suggest success in communication, networking, or creative fields.
+    Focus on careers where you can inspire, connect, and lead others.",
     "context_used": [
         "planetary_factors:Jupiter",
         "zodiacs:Sagittarius",
