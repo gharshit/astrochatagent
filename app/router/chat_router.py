@@ -6,6 +6,7 @@ conversation state and memory per session.
 """
 
 from fastapi import APIRouter, Request, HTTPException, status
+from datetime import datetime
 from app.models import ChatRequest, ChatResponse, KundaliDetails
 from app.utils import fetch_kundali_details
 from app.state import GraphState
@@ -175,14 +176,92 @@ async def chat(chat_request: ChatRequest, request: Request) -> dict:
         logger.info("✓ Graph execution completed, state automatically persisted")
         
         # Extract response from final state
-        response     = final_state.get("messages", [])[-1].content
-        context_used = final_state.get("rag_context_keys", [])
-        zodiac_sign  = kundali_details.key_positions.sun.sign or "N/A"
+        response      = final_state.get("messages", [])[-1].content
+        context_used  = final_state.get("rag_context_keys", [])
+        
+        # Extract astrological details from kundali
+        sun_sign      = kundali_details.key_positions.sun.sign or "Unknown"
+        moon_sign     = kundali_details.key_positions.moon.sign or "Unknown"
+        ascendant_sign = kundali_details.key_positions.ascendant.sign or "Unknown"
+        
+        # Extract and format current dasha information
+        dasha_info = "Not available"
+        vimshottari_dasa = getattr(kundali_details, 'vimshottari_dasa', None)
+        if vimshottari_dasa:
+            try:
+                # Helper function to parse date in DD-MM-YYYY format
+                def parse_dasha_date(date_str: str):
+                    """Parse date string in DD-MM-YYYY format."""
+                    try:
+                        return datetime.strptime(date_str, "%d-%m-%Y").date()
+                    except ValueError:
+                        # Try YYYY-MM-DD format as fallback
+                        try:
+                            return datetime.strptime(date_str, "%Y-%m-%d").date()
+                        except ValueError:
+                            raise ValueError(f"Unable to parse date: {date_str}")
+                
+                # Get current date
+                current_date = datetime.now().date()
+                
+                # Find the current dasa (the one that contains today's date)
+                current_dasa_name = None
+                current_dasa_data = None
+                
+                for dasa_name, dasa_data in vimshottari_dasa.items():
+                    try:
+                        dasa_start = parse_dasha_date(dasa_data.start)
+                        dasa_end = parse_dasha_date(dasa_data.end)
+                        
+                        # Check if current date falls within this dasa period
+                        if dasa_start <= current_date <= dasa_end:
+                            current_dasa_name = dasa_name
+                            current_dasa_data = dasa_data
+                            break
+                    except (ValueError, AttributeError) as e:
+                        logger.debug(f"Error parsing dasa dates for {dasa_name}: {e}")
+                        continue
+                
+                # If current dasa found, format it with current bhukti
+                if current_dasa_name and current_dasa_data:
+                    dasa_str = f"{current_dasa_name} ({current_dasa_data.start} to {current_dasa_data.end})"
+                    
+                    # Find the current bhukti within the current dasa
+                    if current_dasa_data.bhuktis:
+                        current_bhukti_name = None
+                        current_bhukti_data = None
+                        
+                        for bhukti_name, bhukti_data in current_dasa_data.bhuktis.items():
+                            try:
+                                bhukti_start = parse_dasha_date(bhukti_data.start)
+                                bhukti_end = parse_dasha_date(bhukti_data.end)
+                                
+                                # Check if current date falls within this bhukti period
+                                if bhukti_start <= current_date <= bhukti_end:
+                                    current_bhukti_name = bhukti_name
+                                    current_bhukti_data = bhukti_data
+                                    break
+                            except (ValueError, AttributeError) as e:
+                                logger.debug(f"Error parsing bhukti dates for {bhukti_name}: {e}")
+                                continue
+                        
+                        # Add current bhukti info if found
+                        if current_bhukti_name and current_bhukti_data:
+                            dasa_str += f" - Current Bhukti: {current_bhukti_name} ({current_bhukti_data.start} to {current_bhukti_data.end})"
+                    
+                    dasha_info = dasa_str
+                    
+            except Exception as e:
+                logger.warning(f"Error extracting dasha info: {str(e)}", exc_info=True)
+                dasha_info = "Not available"
         
         return ChatResponse(
-            response     = response,
-            context_used = context_used,
-            zodiac_sign  = zodiac_sign
+            response       = response,
+            context_used   = context_used,
+            sun_sign       = sun_sign,
+            moon_sign      = moon_sign,
+            ascendant_sign = ascendant_sign,
+            dasha_info     = dasha_info
         )
             
     except HTTPException:

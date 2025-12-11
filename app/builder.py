@@ -64,6 +64,7 @@ def build_graph() -> StateGraph:
     # Chat is the end
     workflow.add_edge("chat", END)
     
+    
     logger.info("✓ Graph built successfully with RAG flow")
     return workflow
 
@@ -82,6 +83,13 @@ def compile_graph(checkpoint_memory: MemorySaver) -> StateGraph:
     
     workflow = build_graph()
     compiled_graph = workflow.compile(checkpointer=checkpoint_memory)
+    # save png
+    # png_data = compiled_graph.get_graph(xray=True).draw_mermaid_png()
+
+    # # 6. Save the PNG data to a file
+    # file_path = "rag_graph.png"
+    # with open(file_path, "wb") as f:
+    #     f.write(png_data)
     
     logger.info("✓ Graph compiled successfully with checkpoint memory")
     return compiled_graph

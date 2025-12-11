@@ -71,6 +71,7 @@ class TestChatEndpoint:
             mock_key_positions.ascendant = mock_ascendant
             mock_kundali = Mock(spec=KundaliDetails)
             mock_kundali.key_positions = mock_key_positions
+            mock_kundali.vimshottari_dasa = {}  # Add vimshottari_dasa attribute
             mock_fetch.return_value = mock_kundali
             
             mock_graph_state["kundali_details"] = mock_kundali
@@ -82,6 +83,10 @@ class TestChatEndpoint:
             assert isinstance(result, ChatResponse)
             assert result.response == "Your sun sign is Capricorn."
             assert len(result.context_used) > 0
+            assert result.sun_sign == "Capricorn"
+            assert result.moon_sign == "Leo"
+            assert result.ascendant_sign == "Aries"
+            assert result.dasha_info == "Not available"
             mock_fetch.assert_called_once()
     
     @pytest.mark.asyncio
@@ -124,6 +129,11 @@ class TestChatEndpoint:
             result = await chat(chat_request, mock_fastapi_request)
             
             assert isinstance(result, ChatResponse)
+            assert result.response == "Your moon sign is Leo."
+            assert result.sun_sign == "Capricorn"
+            assert result.moon_sign == "Leo"
+            assert result.ascendant_sign == "Aries"
+            assert result.dasha_info == "Not available"
             # Should not fetch kundali again
             mock_fetch.assert_not_called()
     
@@ -195,7 +205,9 @@ class TestChatEndpoint:
         mock_fastapi_request.app.state.checkpoint_memory.aget = AsyncMock(return_value=None)
         
         with patch('app.router.chat_router.fetch_kundali_details', new_callable=AsyncMock) as mock_fetch:
-            mock_fetch.return_value = Mock()
+            mock_kundali = Mock()
+            mock_kundali.vimshottari_dasa = {}  # Add vimshottari_dasa attribute
+            mock_fetch.return_value = mock_kundali
             
             with pytest.raises(HTTPException) as exc_info:
                 await chat(chat_request, mock_fastapi_request)

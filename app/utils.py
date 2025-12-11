@@ -334,6 +334,23 @@ async def fetch_kundali_details(user_profile: UserProfile, request: Request) -> 
         
         # Step 12: Convert planets_data and houses_data to Pydantic models
         logger.info("Step 12: Converting data structures to Pydantic models...")
+        
+        # Helper function to ensure house numbers are 1-indexed (1-12) instead of 0-indexed (0-11)
+        def normalize_house_number(house_nr: int | None) -> int | None:
+            """Convert house number to 1-indexed format (1-12)."""
+            if house_nr is None:
+                return None
+            # If house_nr is 0-11, convert to 1-12
+            # If house_nr is already 1-12, keep as is
+            if 0 <= house_nr <= 11:
+                return house_nr + 1
+            elif 1 <= house_nr <= 12:
+                return house_nr
+            else:
+                # Invalid house number, return None
+                logger.warning(f"Invalid house number: {house_nr}, expected 0-11 or 1-12")
+                return None
+        
         planets_list: List[PlanetData] = []
         for planet in planets_data:
             planets_list.append(PlanetData(
@@ -349,14 +366,18 @@ async def fetch_kundali_details(user_profile: UserProfile, request: Request) -> 
                 nakshatra_lord    = planet.NakshatraLord,
                 sub_lord          = planet.SubLord,
                 sub_sub_lord      = planet.SubSubLord,
-                house_nr          = planet.HouseNr
+                house_nr          = normalize_house_number(planet.HouseNr)
             ))
         
         houses_list: List[HouseData] = []
         for house in houses_data:
+            normalized_house_nr = normalize_house_number(house.HouseNr)
+            if normalized_house_nr is None:
+                logger.warning(f"Skipping house with invalid house number: {house.HouseNr}")
+                continue
             houses_list.append(HouseData(
                 object            = house.Object,
-                house_nr          = house.HouseNr,
+                house_nr          = normalized_house_nr,
                 rasi              = house.Rasi,
                 longitude_dec_deg = house.LonDecDeg,
                 sign_lon_dms      = house.SignLonDMS,

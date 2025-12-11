@@ -57,9 +57,12 @@ class ChatResponse(BaseModel):
     """
     Response to the user message
     """
-    response    : str       = Field(..., description="Response to the user message")
-    context_used: List[str] = Field(..., description="List of context used to generate the response",examples=["career_transits","leo_traits"])
-    zodiac_sign : str       = Field(..., description="Zodiac sign of the user")
+    response       : str      = Field(..., description="Response to the user message")
+    context_used  : List[str] = Field(..., description="List of context used to generate the response",examples=["career_transits","leo_traits"])
+    sun_sign       : str      = Field(..., description="Sun sign of the user from the kundali")
+    moon_sign      : str      = Field(..., description="Moon sign of the user from the kundali")
+    ascendant_sign: str       = Field(..., description="Ascendant sign of the user from the kundali")
+    dasha_info     : str      = Field(..., description="Dasha info of the user from the kundali")
 
 
 # Kundali Details Models
@@ -250,5 +253,5 @@ class RAGQueryOutput(BaseModel):
     )
     reasoning       : Optional[str]    = Field(
         default=None,
-        description="Brief reasoning for why RAG is needed or not needed, and what information is being sought."
+        description="30-40 words max reasoning for why RAG is needed or not needed, which sutras or astrology principles can be used to solve the user query better. Only provide if needs_rag is True."
     )

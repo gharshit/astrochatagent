@@ -12,9 +12,9 @@ load_dotenv()
 logger = setup_logger(name="app.llmclient", level=20)  # INFO level
 
 # Load model configuration from environment variables
-DEFAULT_CHAT_MODEL            = os.getenv("LLM_CHAT_MODEL", "gpt-4o-mini")
-DEFAULT_STRUCTURED_MODEL      = os.getenv("LLM_STRUCTURED_MODEL", "gpt-4o-mini")
-DEFAULT_CHAT_TEMPERATURE      = float(os.getenv("LLM_CHAT_TEMPERATURE", "0.7"))
+DEFAULT_CHAT_MODEL             = os.getenv("LLM_CHAT_MODEL", "gpt-4o-mini")
+DEFAULT_STRUCTURED_MODEL       = os.getenv("LLM_STRUCTURED_MODEL", "gpt-4o-mini")
+DEFAULT_CHAT_TEMPERATURE       = float(os.getenv("LLM_CHAT_TEMPERATURE", "0.7"))
 DEFAULT_STRUCTURED_TEMPERATURE = float(os.getenv("LLM_STRUCTURED_TEMPERATURE", "0"))
 
 

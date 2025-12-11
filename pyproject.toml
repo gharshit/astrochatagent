@@ -31,3 +31,8 @@ dev = [
 
 [tool.uv.sources]
 flatlib = { git = "https://github.com/diliprk/flatlib.git", rev = "sidereal" }
+
+[dependency-groups]
+dev = [
+    "graphviz>=0.21",
+]

@@ -161,16 +161,22 @@ class TestChatResponse:
         
         What: Validates that a properly formatted ChatResponse can be created.
         Why: Ensures chat endpoint returns data in correct format.
-        Args: Valid response string, context_used list, zodiac_sign string.
+        Args: Valid response string, context_used list, sun_sign, moon_sign, ascendant_sign, dasha_info strings.
         """
         response = ChatResponse(
             response="Your sun sign is Capricorn.",
             context_used=["zodiacs:Capricorn", "planetary_factors:Sun"],
-            zodiac_sign="Capricorn"
+            sun_sign="Capricorn",
+            moon_sign="Leo",
+            ascendant_sign="Aries",
+            dasha_info="Ketu (2020-01-01 to 2027-01-01) - Current Bhukti: Ketu-Ketu (2020-01-01 to 2020-06-01)"
         )
         assert response.response == "Your sun sign is Capricorn."
         assert len(response.context_used) == 2
-        assert response.zodiac_sign == "Capricorn"
+        assert response.sun_sign == "Capricorn"
+        assert response.moon_sign == "Leo"
+        assert response.ascendant_sign == "Aries"
+        assert "Ketu" in response.dasha_info
 
 
 class TestMetadataFilters:
