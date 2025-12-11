@@ -15,7 +15,7 @@ class UserProfile(BaseModel):
     birth_date         : str                = Field(..., description="User birth date in YYYY-MM-DD format")
     birth_time         : str                = Field(..., description="User birth time in HH:MM format")
     birth_place        : str                = Field(..., description="User birth place")
-    preffered_language : Literal["en","hi"] = Field(..., description="User preffered language from engish or hindi")
+    preferred_language : Literal["en","hi"] = Field(..., description="User preffered language from engish or hindi")
     
     # validate birth data and time
     @field_validator("birth_date")

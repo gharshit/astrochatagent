@@ -383,7 +383,7 @@ async def chat_node(state: GraphState) -> GraphState:
     rag_results      = state.get("rag_results", [])
     reasoning_summary        = state.get("reasoning", "")
     
-    preferred_language = user_profile.preffered_language if user_profile else "en"
+    preferred_language = user_profile.preferred_language if user_profile else "en"
     language_name = "Hindi" if preferred_language == "hi" else "English"
     
     # Extract comprehensive kundali summary

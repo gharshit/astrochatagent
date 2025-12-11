@@ -354,9 +354,9 @@ class TestChatNode:
         
         What: Validates that response is generated in user's preferred language.
         Why: Supports multilingual responses based on user preference.
-        Args: GraphState with user_profile.preffered_language="hi".
+        Args: GraphState with user_profile.preferred_language="hi".
         """
-        mock_graph_state["user_profile"].preffered_language = "hi"
+        mock_graph_state["user_profile"].preferred_language = "hi"
         
         mock_response = Mock()
         mock_response.content = "आपका सूर्य राशि मकर है।"

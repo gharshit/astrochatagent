@@ -58,12 +58,12 @@ class TestUserProfile:
             birth_date="1990-01-15",
             birth_time="10:30",
             birth_place="New Delhi, India",
-            preffered_language="en"
+            preferred_language="en"
         )
         assert profile.name == "John Doe"
         assert profile.birth_date == "1990-01-15"
         assert profile.birth_time == "10:30"
-        assert profile.preffered_language == "en"
+        assert profile.preferred_language == "en"
     
     def test_invalid_birth_date_format(self):
         """
@@ -79,7 +79,7 @@ class TestUserProfile:
                 birth_date="15-01-1990",  # Wrong format
                 birth_time="10:30",
                 birth_place="New Delhi",
-                preffered_language="en"
+                preferred_language="en"
             )
         assert "Invalid birth date" in str(exc_info.value)
     
@@ -97,7 +97,7 @@ class TestUserProfile:
                 birth_date="1990-01-15",
                 birth_time="10:30 AM",  # Wrong format
                 birth_place="New Delhi",
-                preffered_language="en"
+                preferred_language="en"
             )
         assert "Invalid birth time" in str(exc_info.value)
     
@@ -115,7 +115,7 @@ class TestUserProfile:
                 birth_date="1990-01-15",
                 birth_time="10:30",
                 birth_place="New Delhi",
-                preffered_language="fr"  # Invalid language
+                preferred_language="fr"  # Invalid language
             )
 
 

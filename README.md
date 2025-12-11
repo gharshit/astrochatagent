@@ -59,25 +59,31 @@ Handles conversational interactions with the astrology agent.
 {
   "session_id": "unique-session-id",
   "message": "What does my sun sign say about my personality?",
-  "user_profile": {
-    "name": "John Doe",
-    "birth_date": "1990-01-15",
-    "birth_time": "10:30",
-    "birth_place": "New York, USA",
-    "preffered_language": "en"
-  }
+  "user_profile": 
+  {
+        "name": "Vinay Gupta",
+        "birth_date": "1988-11-05",
+        "birth_time": "10:28",
+        "birth_place": "Delhi, India",
+        "preferred_language": "en"
+    }
 }
 ```
 
 **Response**:
 ```json
 {
-  "response": "Based on your Capricorn sun sign...",
-  "context_used": ["zodiac_traits", "planetary_impact"],
-  "sun_sign": "Capricorn",
-  "moon_sign": "Leo",
-  "ascendant_sign": "Scorpio",
-  "dasha_info": "Jupiter (2020-01-15 to 2036-01-15) - Current Bhukti: Saturn"
+    "response"    : "Your chart shows strong Jupiter energy as Lagna lord, placed in the 7th house, favoring roles involving guidance, teaching, consulting, or partnerships. Mercury and Venus in the 11th house suggest success in communication, networking, or creative fields. Focus on careers where you can inspire, connect, and lead others.",
+    "context_used": [
+        "planetary_factors:Jupiter",
+        "zodiacs:Sagittarius",
+        "planetary_factors:Sun",
+        "planetary_factors:Mercury"
+    ],
+    "sun_sign"      : "Libra",
+    "moon_sign"     : "Virgo",
+    "ascendant_sign": "Sagittarius",
+    "dasha_info"    : "Rahu (13-03-2010 to 13-03-2028) - Current Bhukti: Moon (22-08-2025 to 22-02-2027)"
 }
 ```
 
@@ -103,7 +109,7 @@ Generates complete kundali/horoscope details from user birth information.
   "birth_date": "1990-01-15",
   "birth_time": "10:30",
   "birth_place": "New York, USA",
-  "preffered_language": "en"
+  "preferred_language": "en"
 }
 ```
 

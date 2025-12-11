@@ -38,7 +38,7 @@ def mock_user_profile() -> UserProfile:
         birth_date="1990-01-15",
         birth_time="10:30",
         birth_place="New Delhi, India",
-        preffered_language="en"
+        preferred_language="en"
     )
 
 

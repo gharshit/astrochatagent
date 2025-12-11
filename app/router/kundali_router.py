@@ -59,7 +59,7 @@ async def generate_kundali(user_profile: UserProfile, request: Request) -> Kunda
             - birth_date (str): Birth date in YYYY-MM-DD format
             - birth_time (str): Birth time in HH:MM format (24-hour)
             - birth_place (str): Birth place name (city, country)
-            - preffered_language (str): Preferred language ("en" or "hi")
+            - preferred_language (str): Preferred language ("en" or "hi")
         request: FastAPI request object for accessing app state (geocoder)
         
     Returns:
