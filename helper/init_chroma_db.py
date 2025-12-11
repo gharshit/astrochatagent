@@ -1,6 +1,6 @@
 import chromadb
 from typing import Optional, Callable
-from utils.logger import logger
+from .utils.logger import logger
 
 
 def init_chroma_db(
@@ -58,6 +58,35 @@ def init_chroma_db(
             metadata           = {"hnsw:space": "cosine"}
         )
 
-# if __name__ == "__main__":
-#     collection = init_chroma_db(collection_name="doc_store", recreate=True)
-#     print(collection)
+## ? Create query function
+def create_query_function(collection):
+    """
+    Create a query function for ChromaDB collection.
+    
+    Args:
+        collection: ChromaDB collection instance
+        
+    Returns:
+        Query function that takes query text and returns results
+    """
+    def query_chroma(query_text: str, n_results: int = 5, **kwargs):
+        """
+        Query ChromaDB collection.
+        
+        Args:
+            query_text: Text to search for
+            n_results: Number of results to return
+            **kwargs: Additional query parameters (where, etc.)
+            
+        Returns:
+            Query results with documents, metadatas, and distances
+        """
+        results = collection.query(
+            query_texts=[query_text],
+            n_results=n_results,
+            **kwargs
+        )
+        return results
+    
+    return query_chroma
+

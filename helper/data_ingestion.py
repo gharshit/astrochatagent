@@ -9,8 +9,8 @@ This module orchestrates the ingestion process by:
 """
 
 from pathlib import Path
-from init_chroma_db import init_chroma_db
-from utils import (
+from .init_chroma_db import init_chroma_db
+from .utils import (
     get_openai_embedding_function,
     process_json_file,
     process_text_file,
@@ -95,6 +95,7 @@ def ingest_data(
     logger.info(f"Collection: '{collection_name}'")
     logger.info(f"Total documents: {total_docs}")
     logger.info("=" * 60)
+
 
 
 if __name__ == "__main__":
